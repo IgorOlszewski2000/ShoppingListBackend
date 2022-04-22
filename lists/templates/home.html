@@ -52,6 +52,35 @@
         </tbody>
     </table>
 
+    <table class="table table-hover table-dark">
+      <thead>
+          <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Purchased</th>
+              <th scope="col">List</th>
+              <th scope="col">Options</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for list in list %}
+              <tr>
+                  <td>{{ list.id }}</td>
+                  <td>{{ list.name }}</td>
+                  <td>{{ list.amount }}</td>
+                  <td>{{ list.purchased }}</td>
+                  <td>{{ list.owner }}</td>
+                  <td>
+                      <button class="btn btn-outline btn-info">Edit</button>
+                      <button class="btn btn-outline btn-danger">Delete</button>
+                      <button class="btn btn-outline btn-success">Open</button>
+                  </td>
+              </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+
     <div id="webBot">
         <button class="btn btn-outline btn-info">Add new list</button>
       </div>
