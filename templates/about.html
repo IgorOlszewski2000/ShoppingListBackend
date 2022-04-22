@@ -14,17 +14,20 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-              </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#">About</a>
+                  <a class="nav-link" href="{{ url_for('home_page')}}">Home </span></a>
+              </li>
+              <li class="nav-item active">
+                  <a class="nav-link" href="{{ url_for('home_page')}}">About <span class="sr-only">(current)</a>
               </li>
           </ul>
         </div>
       </nav>
 
       <h1>About</h1>
+      <br>
+      <h2>This WebApp was created for the recruitment at Atos in 2022.</h2>
+      <h2>By Igor Olszewski</h2>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -33,7 +36,8 @@
   <style>
     body {
       background-color: #212121;
-      color: white
+      color: white;
+      text-align: center;
     }
 </style>
 </html>

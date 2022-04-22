@@ -23,3 +23,13 @@ If you want to edit code :)
 ```python
 set FLASK_DEBUG=1
 ```
+
+SQLALCHEMY
+```python
+pip install flask-sqlalchemy
+```
+and
+```python
+from lists import db
+db.create_all()
+```
