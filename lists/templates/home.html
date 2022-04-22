@@ -20,6 +20,9 @@
               <li class="nav-item">
                   <a class="nav-link" href="{{ url_for('about_page')}}">About</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('addlist_page')}}">Add List</a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -44,14 +47,16 @@
                     <td>{{ lists.name }}</td>
                     <td>
                         <button class="btn btn-outline btn-info">Edit</button>
-                        <button class="btn btn-outline btn-danger">Delete</button>
                         <button class="btn btn-outline btn-success">Open</button>
+                        <button class="btn btn-outline btn-danger">Remove</button>
                     </td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
-
+    <div id="webTop">
+      <h1>ALL ITEMS IN ALL LISTS</h1>
+    </div>
     <table class="table table-hover table-dark">
       <thead>
           <tr>
@@ -72,18 +77,16 @@
                   <td>{{ list.purchased }}</td>
                   <td>{{ list.owner }}</td>
                   <td>
-                      <button class="btn btn-outline btn-info">Edit</button>
-                      <button class="btn btn-outline btn-danger">Delete</button>
-                      <button class="btn btn-outline btn-success">Open</button>
+                      <button class="btn btn-outline btn-danger">Remove</button>
+                      <button class="btn btn-outline btn-success">Mark as purchased</button>
+                      <button class="btn btn-outline btn-info">Unmark as purchased</button>
                   </td>
               </tr>
           {% endfor %}
       </tbody>
   </table>
 
-    <div id="webBot">
-        <button class="btn btn-outline btn-info">Add new list</button>
-      </div>
+    
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

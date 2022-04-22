@@ -18,7 +18,10 @@ pip install flask
 set FLASK_APP=lists.py
 python -m flask run
 ```
-
+```python
+pip install flask-wtf
+pip install wtforms
+```
 If you want to edit code :) 
 ```python
 set FLASK_DEBUG=1

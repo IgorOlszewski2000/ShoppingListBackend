@@ -3,14 +3,14 @@ from lists import db
 
 class Lists(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
-    name = db.Column(db.String(length=50), nullable=False, unique=True)
+    name = db.Column(db.String(length=50), nullable=False)
     lista = db.relationship('List', backref='owned_user', lazy=True)
 
 class List(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     name = db.Column(db.String(length=50), nullable=False)
     amount = db.Column(db.Integer(), nullable=False)
-    purchased = db.Column(db.Boolean(), default=False, nullable=False)
+    purchased = db.Column(db.Boolean(), default=False)
     owner = db.Column(db.Integer(), db.ForeignKey('lists.id'))
 
     def __repr__(self):
