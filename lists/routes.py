@@ -1,7 +1,8 @@
+
 from lists import app
 from flask import render_template, redirect, url_for
 from lists.models import Lists, List
-from lists.forms import ListsForm
+from lists.forms import ItemForm, ListsForm
 from lists import db
 
 @app.route('/')
@@ -10,7 +11,7 @@ def home_page():
     lists = Lists.query.all()
     list= List.query.all()
     return render_template('home.html', lists=lists, list=list)
-
+    
 @app.route('/about')
 def about_page():
     return render_template('about.html')
@@ -24,3 +25,13 @@ def addlist_page():
         db.session.commit()
         return redirect(url_for('home_page'))
     return render_template('addlist.html', form=form)
+
+@app.route('/additem', methods=['GET', 'POST'])
+def additem_page():
+    form = ItemForm()
+    if form.validate_on_submit():
+        item_to_create = List(name=form.itemname.data,amount=form.itemamount.data,purchased=form.itempurchased.data,owner=form.itemowner.data)
+        db.session.add(item_to_create)
+        db.session.commit()
+        return redirect(url_for('home_page'))
+    return render_template('additem.html', form=form)

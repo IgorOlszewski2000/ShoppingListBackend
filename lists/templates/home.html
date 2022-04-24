@@ -23,6 +23,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('addlist_page')}}">Add List</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('additem_page')}}">Add Item</a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -71,6 +74,7 @@
       </thead>
       <tbody>
           {% for list in list %}
+        
               <tr>
                   <td>{{ list.id }}</td>
                   <td>{{ list.name }}</td>
