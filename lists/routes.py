@@ -5,7 +5,7 @@ from lists.forms import ListsForm
 from lists import db
 
 @app.route('/')
-@app.route('/home')
+@app.route('/home', methods=['GET', 'POST'])
 def home_page():
     lists = Lists.query.all()
     list= List.query.all()
@@ -19,8 +19,8 @@ def about_page():
 def addlist_page():
     form = ListsForm()
     if form.validate_on_submit():
-        list_to_create = Lists(name=form.listname.data)
-        db.session.add(list_to_create)
+        lists_to_create = Lists(name=form.listname.data)
+        db.session.add(lists_to_create)
         db.session.commit()
         return redirect(url_for('home_page'))
     return render_template('addlist.html', form=form)

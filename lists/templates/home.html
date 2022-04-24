@@ -42,12 +42,13 @@
         </thead>
         <tbody>
             {% for lists in lists %}
+            {% include 'includes/list_modals.html' %}
                 <tr>
                     <td>{{ lists.id }}</td>
                     <td>{{ lists.name }}</td>
                     <td>
                         <button class="btn btn-outline btn-info">Edit</button>
-                        <button class="btn btn-outline btn-success">Open</button>
+                        <button class="btn btn-outline btn-success" data-toggle="modal" data-target="#List-MoreInfo-{{ lists.id }}">Open</button>
                         <button class="btn btn-outline btn-danger">Remove</button>
                     </td>
                 </tr>
@@ -108,3 +109,4 @@
   </style>
 
 </html>
+
