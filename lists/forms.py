@@ -14,3 +14,11 @@ class ItemForm(FlaskForm):
     itempurchased = BooleanField(label=" 0-unpurchased, 1-purchased")
     itemowner = IntegerField(label="ID of list ", validators=[DataRequired()])
     submit = SubmitField(label='Add item')
+
+class RemoveItemForm(FlaskForm):
+    removeitemid = IntegerField(label="ID of item to remove", validators=[DataRequired()])
+    submit = SubmitField(label="Remove Item")
+
+class RemoveListForm(FlaskForm):
+    removelistid = IntegerField(label="ID of list to remove", validators=[DataRequired()])
+    submit = SubmitField(label="Remove List")

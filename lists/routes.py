@@ -1,9 +1,9 @@
-
 from lists import app
-from flask import render_template, redirect, url_for
+from flask import render_template, redirect, request, url_for, flash
 from lists.models import Lists, List
-from lists.forms import ItemForm, ListsForm
+from lists.forms import ItemForm, ListsForm, RemoveItemForm, RemoveListForm
 from lists import db
+from sqlalchemy import select, update, delete, values
 
 @app.route('/')
 @app.route('/home', methods=['GET', 'POST'])
@@ -35,3 +35,29 @@ def additem_page():
         db.session.commit()
         return redirect(url_for('home_page'))
     return render_template('additem.html', form=form)
+
+@app.route('/deleteitem.html', methods=['GET','POST'])
+def deleteitem_page():
+    form = RemoveItemForm()
+    if form.validate_on_submit():
+        itemm = form.removeitemid.data
+        sql2 = delete(List).where(List.id == itemm)
+        db.session.execute(sql2)
+        db.session.commit()
+        return redirect(url_for('home_page'))
+    return render_template('/deleteitem.html', form=form)
+
+@app.route('/deletelist.html', methods=['GET','POST'])
+def deletelist_page():
+    form = RemoveListForm()
+    if form.validate_on_submit():
+        listt = form.removelistid.data
+        sql2 = delete(Lists).where(Lists.id == listt)
+        db.session.execute(sql2)
+        db.session.commit()
+        return redirect(url_for('home_page'))
+    return render_template('/deletelist.html', form=form)
+
+# edit list
+# remove list
+# purchased item

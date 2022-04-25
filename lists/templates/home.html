@@ -26,6 +26,12 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('additem_page')}}">Add Item</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('deleteitem_page')}}">Delete Item</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('deletelist_page')}}">Delete List</a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -52,7 +58,7 @@
                     <td>
                         <button class="btn btn-outline btn-info">Edit</button>
                         <button class="btn btn-outline btn-success" data-toggle="modal" data-target="#List-MoreInfo-{{ lists.id }}">Open</button>
-                        <button class="btn btn-outline btn-danger">Remove</button>
+                        <a href="{{ url_for('deletelist_page')}}" class="btn btn-outline btn-danger">Remove</a>
                     </td>
                 </tr>
             {% endfor %}
@@ -82,7 +88,7 @@
                   <td>{{ list.purchased }}</td>
                   <td>{{ list.owner }}</td>
                   <td>
-                      <button class="btn btn-outline btn-danger">Remove</button>
+                      <a href="{{ url_for('deleteitem_page')}}" class="btn btn-outline btn-danger">Remove</a>
                       <button class="btn btn-outline btn-success">Mark as purchased</button>
                       <button class="btn btn-outline btn-info">Unmark as purchased</button>
                   </td>
