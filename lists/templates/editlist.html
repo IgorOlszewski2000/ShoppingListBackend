@@ -29,28 +29,30 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('deleteitem_page')}}">Delete Item</a>
               </li>
-              <li class="nav-item active">
+              <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('deletelist_page')}}">Delete List</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('changepurchased_page')}}">Change Purchased</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item active">
                 <a class="nav-link" href="{{ url_for('editlist_page')}}">Edit List</a>
               </li>
           </ul>
         </div>
       </nav>
 
-      <h1>Delete List Page</h1>
+      <h1>Edit List Page</h1>
       <br>
       
       <div class="container">
           <form method="POST" class="form-addlist" style="color: white;">
             {{form.hidden_tag()}}
-            {{form.removelistid.label()}}
-            {{form.removelistid(class="form-control", placeholder="List ID")}}
-            <br>
+            {{form.changelistid.label()}}
+            {{form.changelistid(class="form-control", placeholder="LIST ID")}}
+            {{form.editname.label()}}
+            {{form.editname(class="form-control", placeholder="LIST NAME")}}
+           <br>
             {{form.submit(class="btn btn-lg btn-block btn-primary")}}
           </form>
       </div>

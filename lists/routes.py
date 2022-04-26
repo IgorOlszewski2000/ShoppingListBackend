@@ -1,7 +1,7 @@
 from lists import app
 from flask import render_template, redirect, request, url_for, flash
 from lists.models import Lists, List
-from lists.forms import ItemForm, ListsForm, RemoveItemForm, RemoveListForm
+from lists.forms import ItemForm, ListsForm, ChangePurchasedForm, RemoveItemForm, RemoveListForm, ChangeListsForm
 from lists import db
 from sqlalchemy import select, update, delete, values
 
@@ -58,6 +58,28 @@ def deletelist_page():
         return redirect(url_for('home_page'))
     return render_template('/deletelist.html', form=form)
 
-# edit list
-# remove list
-# purchased item
+@app.route('/changepurchased.html', methods=['GET', 'POST'])
+def changepurchased_page():
+    form = ChangePurchasedForm()
+    if form.validate_on_submit():
+        itemid = form.itempurchasedid.data
+        itemik = List.query.filter_by(id=itemid).first()
+        if itemik.purchased == True:
+            itemik.purchased = False
+        else:
+            itemik.purchased = True
+        db.session.commit()
+        return redirect(url_for('home_page'))
+    return render_template('/changepurchased.html', form=form)
+
+@app.route('/editlist.html', methods=['GET', 'POST'])
+def editlist_page():
+    form = ChangeListsForm()
+    if form.validate_on_submit():
+        listtoeditid = form.changelistid.data
+        listtoeditname = form.editname.data
+        itemtoedit = Lists.query.filter_by(id=listtoeditid).first()
+        itemtoedit.name = listtoeditname
+        db.session.commit()
+        return redirect(url_for('home_page'))
+    return render_template('/editlist.html', form=form)

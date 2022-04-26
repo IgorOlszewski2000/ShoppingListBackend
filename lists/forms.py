@@ -11,7 +11,7 @@ class ListsForm(FlaskForm):
 class ItemForm(FlaskForm):
     itemname = StringField(label="Item Name", validators=[Length(min=1, max=50), DataRequired()])
     itemamount = IntegerField(label="Amount", validators=[DataRequired()])
-    itempurchased = BooleanField(label=" 0-unpurchased, 1-purchased")
+    itempurchased = BooleanField(label=" uncheck-unpurchased, check-purchased")
     itemowner = IntegerField(label="ID of list ", validators=[DataRequired()])
     submit = SubmitField(label='Add item')
 
@@ -22,3 +22,12 @@ class RemoveItemForm(FlaskForm):
 class RemoveListForm(FlaskForm):
     removelistid = IntegerField(label="ID of list to remove", validators=[DataRequired()])
     submit = SubmitField(label="Remove List")
+
+class ChangePurchasedForm(FlaskForm):
+    itempurchasedid = IntegerField(label="ID of item", validators=[DataRequired()])
+    submit = SubmitField(label="Accept")
+
+class ChangeListsForm(FlaskForm):
+    changelistid = IntegerField(label="ID of list to edit", validators=[DataRequired()])
+    editname = StringField(label="New name of list", validators=[Length(min=1, max=50), DataRequired()])
+    submit = SubmitField(label="Accept")
