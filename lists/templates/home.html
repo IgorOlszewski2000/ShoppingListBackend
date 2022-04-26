@@ -15,28 +15,28 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav mr-auto">
               <li class="nav-item active">
-                  <a class="nav-link" href="{{ url_for('home_page')}}">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{{ url_for('home_page')}}">HOME<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('about_page')}}">About</a>
+                  <a class="nav-link" href="{{ url_for('about_page')}}">ABOUT</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('addlist_page')}}">Add List</a>
+                <a class="nav-link" href="{{ url_for('addlist_page')}}">ADD LIST</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('additem_page')}}">Add Item</a>
+              <a class="nav-link" href="{{ url_for('additem_page')}}">ADD ITEM</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('deleteitem_page')}}">Delete Item</a>
+              <a class="nav-link" href="{{ url_for('deleteitem_page')}}">DELETE ITEM</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('deletelist_page')}}">Delete List</a>
+              <a class="nav-link" href="{{ url_for('deletelist_page')}}">DELETE LIST</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('changepurchased_page')}}">Change Purchased</a>
+              <a class="nav-link" href="{{ url_for('changepurchased_page')}}">CHANGE PURCHASED</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('editlist_page')}}">Edit List</a>
+              <a class="nav-link" href="{{ url_for('editlist_page')}}">EDIT LIST</a>
             </li>
           </ul>
         </div>
@@ -51,8 +51,8 @@
         <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Options</th>
+                <th scope="col">NAME</th>
+                <th scope="col">OPTIONS</th>
             </tr>
         </thead>
         <tbody>
@@ -62,9 +62,9 @@
                     <td>{{ lists.id }}</td>
                     <td>{{ lists.name }}</td>
                     <td>
-                        <a href="{{ url_for('editlist_page')}}" class="btn btn-outline btn-info">Edit</a>
-                        <button class="btn btn-outline btn-success" data-toggle="modal" data-target="#List-MoreInfo-{{ lists.id }}">Open</button>
-                        <a href="{{ url_for('deletelist_page')}}" class="btn btn-outline btn-danger">Remove</a>
+                        <a href="{{ url_for('editlist_page')}}" class="btn btn-outline btn-info">EDIT</a>
+                        <button class="btn btn-outline btn-success" data-toggle="modal" data-target="#List-MoreInfo-{{ lists.id }}">OPEN</button>
+                        <a href="{{ url_for('deletelist_page')}}" class="btn btn-outline btn-danger">REMOVE</a>
                     </td>
                 </tr>
             {% endfor %}
@@ -77,11 +77,11 @@
       <thead>
           <tr>
               <th scope="col">ID</th>
-              <th scope="col">Name</th>
-              <th scope="col">Amount</th>
-              <th scope="col">Purchased</th>
-              <th scope="col">List</th>
-              <th scope="col">Options</th>
+              <th scope="col">NAME</th>
+              <th scope="col">AMOUNT</th>
+              <th scope="col">PURCHASED</th>
+              <th scope="col">LIST</th>
+              <th scope="col">OPTIONS</th>
           </tr>
       </thead>
       <tbody>
@@ -94,8 +94,8 @@
                   <td>{{ list.purchased }}</td>
                   <td>{{ list.owner }}</td>
                   <td>
-                      <a href="{{ url_for('deleteitem_page')}}" class="btn btn-outline btn-danger">Remove</a>
-                      <a href="{{ url_for('changepurchased_page')}}" class="btn btn-outline btn-info">Change purchased</a>
+                      <a href="{{ url_for('deleteitem_page')}}" class="btn btn-outline btn-danger">REMOVE</a>
+                      <a href="{{ url_for('changepurchased_page')}}" class="btn btn-outline btn-info">CHANGE PURCHASED</a>
                   </td>
               </tr>
           {% endfor %}
