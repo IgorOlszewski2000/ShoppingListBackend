@@ -15,23 +15,15 @@ Create shopping list backend using Python, Flask, SQLAlchemy. Application should
 How to run?
 ```python
 pip install flask
-set FLASK_APP=lists.py
-python -m flask run
-```
-```python
 pip install flask-wtf
 pip install wtforms
-```
-If you want to edit code :) 
-```python
-set FLASK_DEBUG=1
+pip install flask-sqlalchemy
+set FLASK_APP=lists.py
+python run.py
 ```
 
+
 SQLALCHEMY
-```python
-pip install flask-sqlalchemy
-```
-and
 ```python
 from lists import db
 db.create_all()
