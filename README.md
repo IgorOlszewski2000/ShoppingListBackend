@@ -12,3 +12,6 @@ Create shopping list backend using Python, Flask, SQLAlchemy. Application should
 3. Option to mark product as already purchased on the list
 ####
 
+''python
+py run.py
+''
