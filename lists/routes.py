@@ -6,19 +6,19 @@ from lists import db
 from sqlalchemy import select, update, delete, values
 
 @app.route('/')
-@app.route('/home', methods=['GET', 'POST'])
+@app.route('/home', methods=['GET', 'POST']) #main page
 def home_page():
-    lists = Lists.query.all()
-    list= List.query.all()
+    lists = Lists.query.all() #showing all lists
+    list= List.query.all() #showing all items
     return render_template('home.html', lists=lists, list=list)
     
 @app.route('/about')
-def about_page():
+def about_page(): #info page
     return render_template('about.html')
 
-@app.route('/addlist', methods=['GET', 'POST'])
-def addlist_page():
-    form = ListsForm()
+@app.route('/addlist', methods=['GET', 'POST']) #add list page
+def addlist_page(): 
+    form = ListsForm() 
     if form.validate_on_submit():
         lists_to_create = Lists(name=form.listname.data)
         db.session.add(lists_to_create)
@@ -26,7 +26,7 @@ def addlist_page():
         return redirect(url_for('home_page'))
     return render_template('addlist.html', form=form)
 
-@app.route('/additem', methods=['GET', 'POST'])
+@app.route('/additem', methods=['GET', 'POST']) #add item page
 def additem_page():
     form = ItemForm()
     if form.validate_on_submit():
@@ -36,7 +36,7 @@ def additem_page():
         return redirect(url_for('home_page'))
     return render_template('additem.html', form=form)
 
-@app.route('/deleteitem.html', methods=['GET','POST'])
+@app.route('/deleteitem.html', methods=['GET','POST']) #remove item page
 def deleteitem_page():
     form = RemoveItemForm()
     if form.validate_on_submit():
@@ -47,7 +47,7 @@ def deleteitem_page():
         return redirect(url_for('home_page'))
     return render_template('/deleteitem.html', form=form)
 
-@app.route('/deletelist.html', methods=['GET','POST'])
+@app.route('/deletelist.html', methods=['GET','POST']) #remove item page
 def deletelist_page():
     form = RemoveListForm()
     if form.validate_on_submit():
@@ -58,7 +58,7 @@ def deletelist_page():
         return redirect(url_for('home_page'))
     return render_template('/deletelist.html', form=form)
 
-@app.route('/changepurchased.html', methods=['GET', 'POST'])
+@app.route('/changepurchased.html', methods=['GET', 'POST']) #purchase change page
 def changepurchased_page():
     form = ChangePurchasedForm()
     if form.validate_on_submit():
@@ -72,7 +72,7 @@ def changepurchased_page():
         return redirect(url_for('home_page'))
     return render_template('/changepurchased.html', form=form)
 
-@app.route('/editlist.html', methods=['GET', 'POST'])
+@app.route('/editlist.html', methods=['GET', 'POST']) #change name of list page
 def editlist_page():
     form = ChangeListsForm()
     if form.validate_on_submit():
