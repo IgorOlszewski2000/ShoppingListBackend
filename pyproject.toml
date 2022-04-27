@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "shoppinglistbackend"
+version = "0.1.0"
+description = ""
+authors = ["Igor Olszewski <71021482+IgorOlszewski2000@users.noreply.github.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Flask = "^2.1.1"
+Flask-WTF = "^1.0.1"
+WTForms = "^3.0.1"
+SQLAlchemy = "^1.4.36"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
