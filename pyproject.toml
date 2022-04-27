@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "shoppinglistbackend"
 version = "0.1.0"
-description = ""
+description = "description"
 authors = ["Igor Olszewski <71021482+IgorOlszewski2000@users.noreply.github.com>"]
 
 [tool.poetry.dependencies]
