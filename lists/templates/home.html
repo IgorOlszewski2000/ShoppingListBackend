@@ -63,7 +63,7 @@
                     <td>{{ lists.name }}</td>
                     <td>
                         <a href="{{ url_for('editlist_page')}}" class="btn btn-outline btn-info">EDIT</a>
-                        <button class="btn btn-outline btn-success" data-toggle="modal" data-target="#List-MoreInfo-{{ lists.id }}">OPEN</button>
+                        <button class="btn btn-outline btn-success" data-toggle="modal" data-target="#List-MoreInfo-{{ lists.id }}">LOOK</button>
                         <a href="{{ url_for('deletelist_page')}}" class="btn btn-outline btn-danger">REMOVE</a>
                     </td>
                 </tr>
@@ -86,7 +86,6 @@
       </thead>
       <tbody>
           {% for list in list %}
-        
               <tr>
                   <td>{{ list.id }}</td>
                   <td>{{ list.name }}</td>

@@ -16,11 +16,13 @@
         </div>
         <div class="modal-body">
           {% for list in list %}
-          {{ list.id }}
-          {{ list.name }}
-          {{ list.amount }}
-          {{ list.purchased }}
-          {{ list.owner }}<br>
+            {% if list.owner == lists.id %}
+              {{ list.id }}
+              {{ list.name }}
+              {{ list.amount }}
+              {{ list.purchased }}
+              {{ list.owner }}<br>
+            {% endif %}
           {% endfor %}
         </div>
         <div class="modal-footer">
