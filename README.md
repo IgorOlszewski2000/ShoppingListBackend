@@ -15,3 +15,5 @@ Create shopping list backend using Python, Flask, SQLAlchemy. Application should
 ```python
 py run.py
 ```
+
+![alt text](https://raw.githubusercontent.com/IgorOlszewski2000/ShoppingListBackend/main/screens/look_list.pngg)
